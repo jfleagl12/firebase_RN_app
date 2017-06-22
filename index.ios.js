@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -12,22 +6,59 @@ import {
   View
 } from 'react-native';
 
-export default class firestackDemo extends Component {
+const env = require('./config/environment')
+
+import Firestack from 'react-native-firestack'
+import { FirestackModule } from 'react-native-firestack'
+
+// Redux setup
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import { Provider, connect } from 'react-redux'
+import thunk from 'redux-thunk'
+
+const firestack = new Firestack(env.firestack);
+const inst = new FirestackModule('events', {firestack})
+
+let reducers = {
+  events: inst.reducer
+}
+const middleware = applyMiddleware(thunk);
+const store = createStore(combineReducers(reducers), {}, middleware)
+
+// firestack.setStore(store);
+inst.setStore(store); // important
+
+class firestackDemo extends Component {
+  componentWillMount() { 
+    inst.listen(); 
+  }
+
   render() {
+    const {events} = this.props;
+    const items = events.items;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+          Event count: {items.length}
         </Text>
       </View>
     );
+  }
+}
+
+const ConnectedfirestackDemo = connect(state => {
+  return {
+    events: state.events
+  }
+})(firestackDemo)
+
+class RootComponent extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <ConnectedfirestackDemo />
+      </Provider>
+    )
   }
 }
 
@@ -50,4 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('firestackDemo', () => firestackDemo);
+AppRegistry.registerComponent('firestackDemo', () => RootComponent)
