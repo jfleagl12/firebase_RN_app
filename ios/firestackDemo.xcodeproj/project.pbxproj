@@ -1079,7 +1079,16 @@
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firestack/ios/Firestack",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = firestackDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1101,7 +1110,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firestack/ios/Firestack",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"${PROJECT_DIR}/../../../ios/Pods",
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = firestackDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

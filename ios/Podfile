@@ -1,9 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
-platform :ios, '8.0'
-
 [
-  'Firebase',
   'Firebase/Core',
   'Firebase/Auth',
   'Firebase/Storage',
@@ -13,3 +9,9 @@ platform :ios, '8.0'
 ].each do |lib|
   pod lib
 end
+
+target '[project name]' do
+end
+
+# target '[project test name]' do
+# end
